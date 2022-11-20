@@ -9,8 +9,7 @@ bench_all: bench_official-fpm bench_custom-fpm
 
 bench_official-fpm:
 	@${env} docker-compose -f docker-compose.official-fpm.yaml -p php_bench_official_fpm down
-	@${env} docker-compose -f docker-compose.official-fpm.yaml -p php_bench_official_fpm build
-	@${env} docker-compose -f docker-compose.official-fpm.yaml -p php_bench_official_fpm up -d
+	@${env} docker-compose -f docker-compose.official-fpm.yaml -p php_bench_official_fpm up --build -d
 	@echo ""
 	@echo "Official php-fpm + nginx"
 	@echo ""
@@ -20,8 +19,7 @@ bench_official-fpm:
 
 bench_custom-fpm:
 	@${env} docker-compose -f docker-compose.custom-fpm.yaml -p php_bench_custom_fpm down
-	@${env} docker-compose -f docker-compose.custom-fpm.yaml -p php_bench_custom_fpm build
-	@${env} docker-compose -f docker-compose.custom-fpm.yaml -p php_bench_custom_fpm up -d
+	@${env} docker-compose -f docker-compose.custom-fpm.yaml -p php_bench_custom_fpm up --build -d
 	@echo ""
 	@echo "Custom php-fpm + nginx"
 	@echo ""
