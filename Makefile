@@ -3,9 +3,9 @@ CONCURRENCY ?= 100
 REPS ?= 100
 
 env = PHP_VERSION=${PHP_VERSION}
-.PHONY: bench_all bench_official-fpm bench_custom-fpm
+.PHONY: bench_all bench_official-fpm bench_custom-fpm bench_custom-fpm-pid
 
-bench_all: bench_official-fpm bench_custom-fpm
+bench_all: bench_official-fpm bench_custom-fpm bench_custom-fpm-pid
 
 bench_official-fpm:
 	@${env} docker-compose -f docker-compose.official-fpm.yaml -p php_bench_official_fpm down
@@ -19,7 +19,7 @@ bench_official-fpm:
 
 bench_custom-fpm:
 	@${env} docker-compose -f docker-compose.custom-fpm.yaml -p php_bench_custom_fpm down
-	@${env} docker-compose -f docker-compose.custom-fpm.yaml -p php_bench_custom_fpm up --build -d
+	${env} docker-compose -f docker-compose.custom-fpm.yaml -p php_bench_custom_fpm up --build -d
 	@echo ""
 	@echo "Custom php-fpm + nginx"
 	@echo ""
@@ -27,6 +27,15 @@ bench_custom-fpm:
 	siege -b -c${CONCURRENCY} -r${REPS} http://127.0.0.1/lucky/number
 	@${env} docker-compose -f docker-compose.custom-fpm.yaml -p php_bench_custom_fpm down
 
+bench_custom-fpm-pid:
+	@${env} docker-compose -f docker-compose.custom-fpm-pid.yaml -p php_bench_custom_fpm down
+	@${env} docker-compose -f docker-compose.custom-fpm-pid.yaml -p php_bench_custom_fpm up --build -d
+	@echo ""
+	@echo "Custom php-fpm + nginx"
+	@echo ""
+	sleep 3;
+	siege -b -c${CONCURRENCY} -r${REPS} http://127.0.0.1/lucky/number
+	@${env} docker-compose -f docker-compose.custom-fpm-pid.yaml -p php_bench_custom_fpm down
 
 install:
 	@docker build -t symfony_skeleton --build-arg PHP_VERSION=${PHP_VERSION} ./symfony_skeleton

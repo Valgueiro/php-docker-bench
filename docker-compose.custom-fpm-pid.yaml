@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  web:
+    build:
+      dockerfile: Dockerfile
+      context: custom-fpm
+      args:
+        - PHP_VERSION=${PHP_VERSION}
+    ports:
+      - "80:80"
+    volumes:
+      - "./custom-fpm/nginx-pid-link.conf:/etc/nginx/nginx.conf"
+      - "./symfony_skeleton:/var/www:cached"
