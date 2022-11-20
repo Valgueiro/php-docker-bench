@@ -5,7 +5,7 @@
         "php": "^7.4.3",
         "ext-iconv": "*",
         "symfony/console": "^4.0",
-        "symfony/flex": "^1.0",
+        "symfony/flex": "^2.0",
         "symfony/framework-bundle": "^4.0",
         "symfony/lts": "^4@dev",
         "symfony/yaml": "^4.0"
@@ -17,7 +17,10 @@
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "symfony/flex": true
+        }
     },
     "autoload": {
         "psr-4": {
