@@ -1,3 +1,4 @@
+PHP_VERSION ?= 7.4.33
 CONCURRENCY ?= 100
 REPS ?= 100
 
@@ -27,7 +28,10 @@ bench_custom-fpm:
 	siege -b -c${CONCURRENCY} -r${REPS} http://127.0.0.1/lucky/number
 	@docker-compose -f docker-compose.custom-fpm.yaml -p php_bench_custom_fpm down
 
+
 install:
-	@docker run --rm \
+	@docker build -t symfony_skeleton --build-arg PHP_VERSION=${PHP_VERSION} ./symfony_skeleton
+	docker run --rm \
 	--volume ${CURDIR}/symfony_skeleton:/app \
-	composer install --ansi
+	-w /app  \
+	symfony_skeleton composer install --ansi
