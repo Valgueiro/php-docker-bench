@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:kinetic
 
 # Add wait-for-it
 ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /bin/wait-for-it.sh
@@ -12,7 +12,7 @@ CMD []
 
 # Disable frontend dialogs
 ENV DEBIAN_FRONTEND noninteractive
-ENV PHP_VERSION 7.2
+ARG PHP_VERSION
 # Add ppa, curl and syslogd
 RUN apt-get update && apt-get install -y software-properties-common curl inetutils-syslogd && \
     apt-add-repository ppa:nginx/stable -y && \

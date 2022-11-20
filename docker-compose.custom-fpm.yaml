@@ -6,6 +6,8 @@ services:
     build:
       dockerfile: Dockerfile
       context: custom-fpm
+      args:
+        - PHP_VERSION=${PHP_VERSION}
     ports:
       - "80:80"
     volumes:

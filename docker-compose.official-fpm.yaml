@@ -3,7 +3,7 @@ version: '3'
 services:
   
   fpm:
-    image: php:7-fpm
+    image: php:${PHP_VERSION}-fpm
     volumes:
       - "./symfony_skeleton:/var/www:cached"
 
