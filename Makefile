@@ -14,7 +14,7 @@ bench_official-fpm:
 	@echo "Official php-fpm + nginx"
 	@echo ""
 	sleep 3;
-	siege -b -c${CONCURRENCY} -r${REPS} http://127.0.0.1/lucky/number
+	siege -b -c${CONCURRENCY} -r${REPS} http://127.0.0.1/lucky/number > official-fpm-results.txt
 	@${env} docker-compose -f docker-compose.official-fpm.yaml -p php_bench_official_fpm down
 
 bench_custom-fpm:
@@ -24,7 +24,7 @@ bench_custom-fpm:
 	@echo "Custom php-fpm + nginx"
 	@echo ""
 	sleep 3;
-	siege -b -c${CONCURRENCY} -r${REPS} http://127.0.0.1/lucky/number
+	siege -b -c${CONCURRENCY} -r${REPS} http://127.0.0.1/lucky/number > custom-fpm-results.txt
 	@${env} docker-compose -f docker-compose.custom-fpm.yaml -p php_bench_custom_fpm down
 
 
