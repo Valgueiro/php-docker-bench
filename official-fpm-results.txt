@@ -1,42 +1,42 @@
 1 ===================
 Transactions:		       10000 hits
 Availability:		      100.00 %
-Elapsed time:		      171.99 secs
+Elapsed time:		      176.60 secs
 Data transferred:	        0.53 MB
-Response time:		        1.71 secs
-Transaction rate:	       58.14 trans/sec
+Response time:		        1.76 secs
+Transaction rate:	       56.63 trans/sec
 Throughput:		        0.00 MB/sec
-Concurrency:		       99.53
+Concurrency:		       99.50
 Successful transactions:       10000
 Failed transactions:	           0
-Longest transaction:	        1.87
-Shortest transaction:	        0.07
+Longest transaction:	        1.92
+Shortest transaction:	        0.06
 ==================
 2 ===================
 Transactions:		       10000 hits
 Availability:		      100.00 %
-Elapsed time:		      172.38 secs
+Elapsed time:		      176.78 secs
 Data transferred:	        0.53 MB
-Response time:		        1.72 secs
-Transaction rate:	       58.01 trans/sec
+Response time:		        1.76 secs
+Transaction rate:	       56.57 trans/sec
 Throughput:		        0.00 MB/sec
-Concurrency:		       99.49
+Concurrency:		       99.50
 Successful transactions:       10000
 Failed transactions:	           0
-Longest transaction:	        1.88
+Longest transaction:	        1.91
 Shortest transaction:	        0.09
 ==================
 3 ===================
 Transactions:		       10000 hits
 Availability:		      100.00 %
-Elapsed time:		      170.89 secs
+Elapsed time:		      171.26 secs
 Data transferred:	        0.53 MB
 Response time:		        1.70 secs
-Transaction rate:	       58.52 trans/sec
+Transaction rate:	       58.39 trans/sec
 Throughput:		        0.00 MB/sec
-Concurrency:		       99.49
+Concurrency:		       99.51
 Successful transactions:       10000
 Failed transactions:	           0
-Longest transaction:	        1.86
+Longest transaction:	        1.88
 Shortest transaction:	        0.07
 ==================
