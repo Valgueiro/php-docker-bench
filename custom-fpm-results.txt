@@ -1,46 +1,42 @@
 1 ===================
-** Preparing 100 concurrent users for battle.
-The server is now under siege...
 Transactions:		       10000 hits
 Availability:		      100.00 %
-Elapsed time:		       27.58 secs
+Elapsed time:		       27.04 secs
 Data transferred:	        0.53 MB
 Response time:		        0.27 secs
-Transaction rate:	      362.58 trans/sec
+Transaction rate:	      369.82 trans/sec
 Throughput:		        0.02 MB/sec
-Concurrency:		       99.45
+Concurrency:		       99.44
 Successful transactions:       10000
 Failed transactions:	           0
-Longest transaction:	        0.64
+Longest transaction:	        0.59
 Shortest transaction:	        0.17
 ==================
 2 ===================
-The server is now under siege...
 Transactions:		       10000 hits
 Availability:		      100.00 %
-Elapsed time:		       26.74 secs
+Elapsed time:		       26.95 secs
 Data transferred:	        0.53 MB
 Response time:		        0.27 secs
-Transaction rate:	      373.97 trans/sec
+Transaction rate:	      371.06 trans/sec
 Throughput:		        0.02 MB/sec
-Concurrency:		       99.38
+Concurrency:		       99.48
 Successful transactions:       10000
 Failed transactions:	           0
-Longest transaction:	        0.60
-Shortest transaction:	        0.19
+Longest transaction:	        0.41
+Shortest transaction:	        0.13
 ==================
 3 ===================
-The server is now under siege...
 Transactions:		       10000 hits
 Availability:		      100.00 %
-Elapsed time:		       27.76 secs
+Elapsed time:		       26.45 secs
 Data transferred:	        0.53 MB
-Response time:		        0.28 secs
-Transaction rate:	      360.23 trans/sec
+Response time:		        0.26 secs
+Transaction rate:	      378.07 trans/sec
 Throughput:		        0.02 MB/sec
-Concurrency:		       99.45
+Concurrency:		       99.48
 Successful transactions:       10000
 Failed transactions:	           0
-Longest transaction:	        0.36
-Shortest transaction:	        0.11
+Longest transaction:	        0.37
+Shortest transaction:	        0.10
 ==================

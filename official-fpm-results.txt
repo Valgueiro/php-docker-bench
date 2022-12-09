@@ -1,48 +1,42 @@
 1 ===================
-** Preparing 100 concurrent users for battle.
-The server is now under siege...
 Transactions:		       10000 hits
 Availability:		      100.00 %
-Elapsed time:		      166.65 secs
+Elapsed time:		      171.99 secs
 Data transferred:	        0.53 MB
-Response time:		        1.66 secs
-Transaction rate:	       60.01 trans/sec
+Response time:		        1.71 secs
+Transaction rate:	       58.14 trans/sec
 Throughput:		        0.00 MB/sec
-Concurrency:		       99.51
+Concurrency:		       99.53
 Successful transactions:       10000
 Failed transactions:	           0
-Longest transaction:	        1.81
-Shortest transaction:	        0.08
-==================
-2 ===================
-The server is now under siege...
-Transactions:		       10000 hits
-Availability:		      100.00 %
-Elapsed time:		      166.32 secs
-Data transferred:	        0.53 MB
-Response time:		        1.66 secs
-Transaction rate:	       60.13 trans/sec
-Throughput:		        0.00 MB/sec
-Concurrency:		       99.52
-Successful transactions:       10000
-Failed transactions:	           0
-Longest transaction:	        1.82
+Longest transaction:	        1.87
 Shortest transaction:	        0.07
 ==================
-3 ===================
-** SIEGE 4.0.4
-** Preparing 100 concurrent users for battle.
-The server is now under siege...
+2 ===================
 Transactions:		       10000 hits
 Availability:		      100.00 %
-Elapsed time:		      165.93 secs
+Elapsed time:		      172.38 secs
 Data transferred:	        0.53 MB
-Response time:		        1.65 secs
-Transaction rate:	       60.27 trans/sec
+Response time:		        1.72 secs
+Transaction rate:	       58.01 trans/sec
 Throughput:		        0.00 MB/sec
-Concurrency:		       99.51
+Concurrency:		       99.49
 Successful transactions:       10000
 Failed transactions:	           0
 Longest transaction:	        1.88
-Shortest transaction:	        0.06
+Shortest transaction:	        0.09
+==================
+3 ===================
+Transactions:		       10000 hits
+Availability:		      100.00 %
+Elapsed time:		      170.89 secs
+Data transferred:	        0.53 MB
+Response time:		        1.70 secs
+Transaction rate:	       58.52 trans/sec
+Throughput:		        0.00 MB/sec
+Concurrency:		       99.49
+Successful transactions:       10000
+Failed transactions:	           0
+Longest transaction:	        1.86
+Shortest transaction:	        0.07
 ==================
