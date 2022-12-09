@@ -1,0 +1,13 @@
+The server is now under siege...
+Transactions:		       10000 hits
+Availability:		      100.00 %
+Elapsed time:		       18.41 secs
+Data transferred:	        0.53 MB
+Response time:		        0.18 secs
+Transaction rate:	      543.18 trans/sec
+Throughput:		        0.03 MB/sec
+Concurrency:		       99.35
+Successful transactions:       10000
+Failed transactions:	           0
+Longest transaction:	        0.27
+Shortest transaction:	        0.02
