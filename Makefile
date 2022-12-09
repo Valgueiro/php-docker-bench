@@ -5,7 +5,7 @@ REPS ?= 100
 env = PHP_VERSION=${PHP_VERSION}
 .PHONY: bench_all bench_official-fpm bench_custom-fpm
 
-bench_all: bench_official-fpm bench_custom-fpm
+bench_all: bench_bare-metal bench_official-fpm bench_custom-fpm
 
 bench_official-fpm:
 	@${env} docker-compose -f docker-compose.official-fpm.yaml -p php_bench_official_fpm down
