@@ -1,0 +1,49 @@
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Fail if "PHP_VERSION" is undefined
+      ansible.builtin.fail: 
+        msg: "Bailing out. This play requires 'PHP_VERSION'"
+      when: PHP_VERSION is undefined
+    
+    - debug:
+        var: "PHP_VERSION"
+      
+    - name: install pkgs
+      become: true
+      ansible.builtin.apt:
+        pkg:
+          - siege
+          - nginx
+          - php{{ PHP_VERSION }}-fpm
+          - php{{ PHP_VERSION }}-curl
+          - php{{ PHP_VERSION }}-cli
+          - php{{ PHP_VERSION }}-json
+          - php{{ PHP_VERSION }}-mysql
+          - php{{ PHP_VERSION }}-xml
+          - php{{ PHP_VERSION }}-mbstring
+          - php{{ PHP_VERSION }}-zip
+
+    - name: setup config file
+      become: true
+      ansible.builtin.script: ../custom-fpm/update-config-files.sh
+      environment:
+        PHP_VERSION: "{{ PHP_VERSION }}"
+
+    - name: copy nginx file
+      become: true 
+      copy:
+        src: ../custom-fpm/nginx-network-link.conf
+        dest: /etc/nginx/nginx.conf
+
+    - name: run php
+      become: true 
+      ansible.builtin.shell:
+        cmd: /usr/sbin/php-fpm{{PHP_VERSION}} -R 
+        chdir: ./symfony_skeleton/
+    
+    - name: restart nginx
+      service: 
+        name: nginx
+        state: restarted 
+        enabled: yes

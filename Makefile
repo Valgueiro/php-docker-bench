@@ -27,6 +27,8 @@ bench_custom-fpm:
 	siege -b -c${CONCURRENCY} -r${REPS} http://127.0.0.1/lucky/number > custom-fpm-results.txt
 	@${env} docker-compose -f docker-compose.custom-fpm.yaml -p php_bench_custom_fpm down
 
+bench_bare-metal:
+	ansible-playbook bare-metal/setup.yml -e "${env}" -i inventory -v
 
 install:
 	@docker build -t symfony_skeleton --build-arg PHP_VERSION=${PHP_VERSION} ./symfony_skeleton
@@ -34,3 +36,4 @@ install:
 	--volume ${CURDIR}/symfony_skeleton:/app \
 	-w /app  \
 	symfony_skeleton composer install --ansi
+	pip install ansible
