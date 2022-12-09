@@ -1,3 +1,4 @@
+1 ===================
 The server is now under siege...
 Transactions:		       10000 hits
 Availability:		      100.00 %
@@ -11,3 +12,36 @@ Successful transactions:       10000
 Failed transactions:	           0
 Longest transaction:	        0.27
 Shortest transaction:	        0.02
+==================
+2 ===================
+** Preparing 100 concurrent users for battle.
+The server is now under siege...
+Transactions:		       10000 hits
+Availability:		      100.00 %
+Elapsed time:		       19.28 secs
+Data transferred:	        0.53 MB
+Response time:		        0.19 secs
+Transaction rate:	      518.67 trans/sec
+Throughput:		        0.03 MB/sec
+Concurrency:		       99.23
+Successful transactions:       10000
+Failed transactions:	           0
+Longest transaction:	        0.52
+Shortest transaction:	        0.01
+==================
+3 ===================
+** Preparing 100 concurrent users for battle.
+The server is now under siege...
+Transactions:		       10000 hits
+Availability:		      100.00 %
+Elapsed time:		       18.37 secs
+Data transferred:	        0.53 MB
+Response time:		        0.18 secs
+Transaction rate:	      544.37 trans/sec
+Throughput:		        0.03 MB/sec
+Concurrency:		       99.31
+Successful transactions:       10000
+Failed transactions:	           0
+Longest transaction:	        0.27
+Shortest transaction:	        0.03
+==================
