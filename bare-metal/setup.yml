@@ -40,7 +40,7 @@
       become: true 
       ansible.builtin.shell:
         cmd: /usr/sbin/php-fpm{{PHP_VERSION}} -R 
-        chdir: ./symfony_skeleton/
+        chdir: /home/ubuntu/php-docker-bench/symfony_skeleton/
     
     - name: restart nginx
       service: 
