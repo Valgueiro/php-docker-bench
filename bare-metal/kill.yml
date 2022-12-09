@@ -1,0 +1,12 @@
+- hosts: localhost
+  user: ubuntu
+  gather_facts: no
+  tasks:
+    - name: disable processes
+      become: true
+      service: 
+        name: "{{ item }}"
+        state: stopped
+      loop:
+        - nginx
+        - php{{ PHP_VERSION }}-fpm

@@ -29,7 +29,12 @@ bench_custom-fpm:
 
 bench_bare-metal:
 	ansible-playbook bare-metal/setup.yml -e "${env}" -i inventory -v
-
+	@echo ""
+	@echo "Bare Metal"
+	@echo ""
+	sleep 3;
+	siege -b -c${CONCURRENCY} -r${REPS} http://127.0.0.1/lucky/number > bare-metal-results.txt
+	@ansible-playbook bare-metal/kill.yml -e "${env}" -i inventory -v
 install:
 	@docker build -t symfony_skeleton --build-arg PHP_VERSION=${PHP_VERSION} ./symfony_skeleton
 	docker run --rm \
