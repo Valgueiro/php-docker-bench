@@ -2,11 +2,10 @@
   user: ubuntu
   gather_facts: no
   tasks:
-    - name: disable processes
-      become: true
-      service: 
-        name: "{{ item }}"
-        state: stopped
+    - name: stop processes
+      ignore_errors: true
+      shell:
+        cmd: sudo kill -9 $(sudo lsof -i -P -n | awk '/LISTEN/ && /{{ item }}/' | awk '{print $2}')
       loop:
-        - nginx
-        - php{{ PHP_VERSION }}-fpm
+        - 9000
+        - 80

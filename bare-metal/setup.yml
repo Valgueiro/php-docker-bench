@@ -33,7 +33,7 @@
     - name: copy nginx file
       become: true 
       copy:
-        src: ../custom-fpm/nginx-network-link.conf
+        src: nginx.conf
         dest: /etc/nginx/nginx.conf
 
     - name: run php
@@ -42,8 +42,7 @@
         cmd: /usr/sbin/php-fpm{{PHP_VERSION}} -R 
         chdir: /home/ubuntu/php-docker-bench/symfony_skeleton/
     
-    - name: restart nginx
-      service: 
-        name: nginx
-        state: restarted 
-        enabled: yes
+    - name: run nginx
+      become: true
+      ansible.builtin.shell:
+        cmd: /usr/sbin/nginx

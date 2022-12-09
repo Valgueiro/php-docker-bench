@@ -27,13 +27,16 @@ bench_custom-fpm:
 	siege -b -c${CONCURRENCY} -r${REPS} http://127.0.0.1/lucky/number > custom-fpm-results.txt
 	@${env} docker-compose -f docker-compose.custom-fpm.yaml -p php_bench_custom_fpm down
 
-bench_bare-metal:
-	ansible-playbook bare-metal/setup.yml -e "${env}" -i inventory -v
+bench_bare-metal: bare-metal-kill
+	ansible-playbook bare-metal/setup.yml -e "${env}" -i inventory -vvv
 	@echo ""
 	@echo "Bare Metal"
 	@echo ""
 	sleep 3;
 	siege -b -c${CONCURRENCY} -r${REPS} http://127.0.0.1/lucky/number > bare-metal-results.txt
+	$(MAKE) bare-metal-kill
+
+bare-metal-kill:
 	@ansible-playbook bare-metal/kill.yml -e "${env}" -i inventory -v
 
 install:
