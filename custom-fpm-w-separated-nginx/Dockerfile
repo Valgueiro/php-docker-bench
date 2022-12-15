@@ -28,9 +28,8 @@ RUN chmod +x /tmp/update-config-files.sh && \
     ./tmp/update-config-files.sh
 
 # Copy PHP-FPM service script
-COPY start-fpm.sh /etc/services.d/php_fpm/run
-RUN chmod 755 /etc/services.d/php_fpm/run
+COPY start-fpm.sh /tmp/start-fpm.sh 
+RUN chmod +x /tmp/start-fpm.sh 
 
-
-ENTRYPOINT ["./etc/services.d/php_fpm/run"]
+ENTRYPOINT ["./tmp/start-fpm.sh"]
 CMD []
