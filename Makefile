@@ -27,6 +27,16 @@ bench_custom-fpm:
 	siege -b -c${CONCURRENCY} -r${REPS} http://127.0.0.1/lucky/number > custom-fpm-results.txt
 	@${env} docker-compose -f docker-compose.custom-fpm.yaml -p php_bench_custom_fpm down
 
+bench_custom-fpm-w-separated-nginx:
+	@${env} docker-compose -f docker-compose.custom-fpm-w-separeted-nginx.yml -p php_bench_custom_fpm_w_separated down
+	@${env} docker-compose -f docker-compose.custom-fpm-w-separeted-nginx.yml -p php_bench_custom_fpm_w_separated up --build -d
+	@echo ""
+	@echo "Custom php-fpm + separated nginx"
+	@echo ""
+	sleep 3;
+	siege -b -c${CONCURRENCY} -r${REPS} http://127.0.0.1/lucky/number > custom-fpm-w-separated-nginx-results.txt
+	@${env} docker-compose -f docker-compose.custom-fpm-w-separeted-nginx.yml -p php_bench_custom_fpm_w_separated down
+
 bench_bare-metal: bare-metal-kill
 	ansible-playbook bare-metal/setup.yml -e "${env}" -i inventory -vvv
 	@echo ""

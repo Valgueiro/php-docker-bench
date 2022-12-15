@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  
+  web:
+    build:
+      dockerfile: Dockerfile
+      context: custom-fpm-w-separated-nginx
+      args:
+        - PHP_VERSION=${PHP_VERSION}
+    ports:
+      - "9000:9000"
+    volumes:
+      - "./symfony_skeleton:/var/www:cached"
+
+
+  nginx:
+    image: nginx:stable
+    ports:
+      - "80:80"
+    volumes:
+      - "./official-fpm/nginx.conf:/etc/nginx/nginx.conf"
+      - "./symfony_skeleton:/var/www:cached"
