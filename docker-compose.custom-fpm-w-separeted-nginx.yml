@@ -2,7 +2,7 @@ version: '3'
 
 services:
   
-  web:
+  fpm:
     build:
       dockerfile: Dockerfile
       context: custom-fpm-w-separated-nginx
